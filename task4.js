@@ -1,12 +1,15 @@
 //Calcular promedio de notas
 const prompt = require("prompt-sync")();
 
-let notasTotal = Number(prompt("ingresa las notas separadas por coma(,): "));
-const listaNotas = [];
+let notasTotal = (prompt("ingresa las notas separadas por coma(,): ").split(","));
 
 function calcularPromedio(notas){
-    for (let i = 0; i < notasTotal.length; i++) {
-        const element = array[i];
-        
+    let suma = 0;
+    for (let i = 0; i < notas.length; i++) {
+       suma += parseFloat(notas[i]);
     }
+    let promedio = suma/notas.length;
+    return promedio.toFixed(2);
 }
+
+console.log("El promedio de notas es: "+calcularPromedio(notasTotal));
